@@ -4,17 +4,17 @@ class SongsController < ApplicationController
     @songs = Song.all
   end
 
-  def show
-    @song = song_find
-  end
-
   def new
     @song = Song.new
   end
-
-  def create
+  
+  def show
+    @song = song_find
+  end
+  
+  def create  
     @song = Song.new(song_params)
-
+    
     if @song.valid?
       @song.save
       redirect_to song_path(@song)
